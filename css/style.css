@@ -1,4 +1,5 @@
 * {box-sizing: border-box;}
+
 body {
 	font-family: sans-serif;
 	margin: 20px;
@@ -20,7 +21,7 @@ body {
 	width: 400%;
 }
 .overflow{ 
-    height: 650px;
+    height: 950px;
 	width: 100%;
 	overflow: hidden;
 }
