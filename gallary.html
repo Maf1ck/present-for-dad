@@ -22,8 +22,9 @@
                 <a href="./index.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
                 <ul class="ul-header">
                     <li class="li-header">
-                        <a href="./index.html" class="home-text ">Головна</a>
+                        <a href="./index.html" class="home-text">Головна</a>
                     </li>
+                    <li>
                     <a href="./gallary.html" class="home-text current">Галерея</a>
                     </li>
                     <li class="li-header">
@@ -40,6 +41,137 @@
             </address>
         </div>
     </header>
+    <main>
+        <section>
+            <h2 class="h2-gallary">Історична галерея</h2>
+        </section>
+        <section class="gallery">
+            <!-- Додаємо 30 зображень -->
+            <div class="gallery-item">
+                <img src="./images/gallary/fishing-1.jpg" alt="Опис фото 1">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/fishing-3.jpg" alt="Опис фото 3">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/fishing-4.jpg" alt="Опис фото 4">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/with-son.jpg" alt="Опис фото 2">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/goverla-selfi.jpg" alt="Опис фото 5">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/waterdown-selfi.jpg" alt="Опис фото 6">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/with-famaly-kayak.jpg" alt="Опис фото 7">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/strong-man-goverla.jpg" alt="Опис фото 8">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/strong-man.jpg" alt="Опис фото 9">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/strong-man-mum.jpg" alt="Опис фото 17">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/strong-man-odess.jpg" alt="Опис фото 18">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/odessa-in-costume.jpg" alt="Опис фото 10">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/remont-odessa.jpg" alt="Опис фото 11">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/relax-near-fries.jpg" alt="Опис фото 12">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/relax-in-house.jpg" alt="Опис фото 13">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/happy-trip.jpg" alt="Опис фото 14">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/motorcycle-krop.jpg" alt="Опис фото 15">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/brutal.jpg" alt="Опис фото 16">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/patriot.jpg" alt="Опис фото 16">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/with-mum.jpg" alt="Опис фото 16">
+            </div>
+            <div class="gallery-item">
+                <img src="./images/gallary/selfi-odessa.jpg" alt="Опис фото 16">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <div>
+
+            </div>
+        </section>
+    </footer>
+    <script>
+        // Масив з URL-адресами зображень
+        const imageUrls = [
+            "./images/gallary/motorcycle-krop.jpg",
+            "./images/gallary/happy-trip.jpg",
+            "./images/gallary/relax-in-house.jpg",
+            "./images/gallary/relax-near-fries.jpg",
+            "./images/gallary/remont-odessa.jpg",
+            "./images/gallary/odessa-in-costume.jpg",
+            "./images/gallary/strong-man-odess.jpg",
+            "./images/gallary/strong-man-mum.jpg",
+            "./images/gallary/strong-man.jpg",
+            "./images/gallary/strong-man-goverla.jpg",
+            "./images/gallary/with-famaly-kayak.jpg",
+            "./images/gallary/waterdown-selfi.jpg",
+            "./images/gallary/goverla-selfi.jpg",
+            "./images/gallary/fishing-4.jpg",
+            "./images/gallary/fishing-3.jpg",
+            "./images/gallary/with-son.jpg",
+            "./images/gallary/fishing-1.jpg",
+            "./images/gallary/brutal.jpg",
+            "./images/gallary/patriot.jpg",
+            "./images/gallary/with-mum.jpg",
+            "./images/gallary/selfi-odessa  .jpg"
+            // Додайте більше посилань на зображення за необхідністю
+        ];
+
+        // Отримати контейнер галереї
+        const galleryContainer = document.getElementById('gallery');
+
+        // Функція для додавання зображень до галереї
+        function createGallery() {
+            imageUrls.forEach(url => {
+                // Створити div для елемента галереї
+                const galleryItem = document.createElement('div');
+                galleryItem.classList.add('gallery-item');
+
+                // Створити зображення
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = 'Зображення';
+
+                // Додати зображення до div'а
+                galleryItem.appendChild(img);
+
+                // Додати div до контейнера галереї
+                galleryContainer.appendChild(galleryItem);
+            });
+        }
+
+        // Виклик функції для створення галереї
+        createGallery();
+    </script>
     
 </body>
 </html>

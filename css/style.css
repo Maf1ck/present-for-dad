@@ -376,10 +376,12 @@ img{
     border-radius: 25px;
 }
 .h2-section-three {
+    font-size: 28px;
     font-weight: bold;
     font-size: 20px;
 }
 .p-section-three {
+    font-size: 20px;
     margin-top: 10px;
     font-size: 13px;
 }
@@ -415,3 +417,144 @@ img{
 .about-dad{
     margin-top: 50px;
 }
+
+.footer-last{
+    padding: 100px 0;
+}
+.footer-logo{
+    display: inline-block;
+    margin-bottom: 16px;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.17;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #4d5ae5;
+}
+.footer-second-letter{
+    color: #f4f4fd;
+}
+
+.p-footer{
+    max-width: 264px;
+    line-height: 1.5;
+    color: var(--text-color);
+    letter-spacing: 0.02em;
+}
+@media (max-width: 768px) {
+    .hero {
+      padding: 40px 20px;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    .hero p {
+      font-size: 1rem;
+    }
+    .header-div,
+    .slider,
+    .about-dad {
+        width: 100%;
+    }
+
+    .slide h2 {
+        font-size: 1.2em;
+    }
+
+    .arrows label {
+        width: 25px;
+        height: 25px;
+    }
+
+    .dots label {
+        bottom: 50px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .img-sectione-three {
+        width: 100%;
+        height: auto;
+    }
+
+    .ul-section-three {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .li-section-three {
+        width: 100%;
+    }
+      /* Зменшення розміру тексту та елементів для менших екранів */
+      .title-h {
+        font-size: 2em;
+    }
+    .title-button {
+        padding: 10px;
+        font-size: 1em;
+    }
+    .arrows label {
+        width: 30px;
+        height: 30px;
+    }
+    .dots label {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+  
+  
+  /* Адаптивні стилі для маленьких екранів */
+  @media (max-width: 480px) {
+    .hero {
+      padding: 20px 10px;
+    }
+    .hero h1 {
+      font-size: 2rem;
+    }
+    .hero p {
+      font-size: 0.9rem;
+    }
+    .header-div {
+        flex-direction: column;
+    }
+    .logo-first-letters,
+    .ul-header {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .slider {
+        max-width: 100%;
+        padding: 0;
+    }
+    .dots {
+        margin-top: 20px;
+    }
+    .adress-start {
+        font-size: 0.9em;
+    }
+    .title-h {
+        font-size: 32px;
+    }
+
+    .title-button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .slide h2 {
+        font-size: 1em;
+    }
+
+    .dots {
+        margin-top: 10%;
+    }
+
+    .p-section-three,
+    .h2-section-three {
+        font-size: 14px;
+    }
+}
+  

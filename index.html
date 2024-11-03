@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/gallary.css"> <!-- Основний CSS для сторінки галереї -->
+    <link rel="stylesheet" href="./css/style.css"> <!-- Інші загальні стилі -->
+
     <script src="script.js"></script>
     <title>Site for you</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,42 +46,42 @@
                 <button type="button" class="title-button">Показати привітання</button>
             </div>
         </section>
-        <section class="section-two">
-            <div  class="slider">
-                <input checked type="radio" name="slider" id="switch1">
-                <input type="radio" name="slider" id="switch2">
-                <input type="radio" name="slider" id="switch3">
-                <input type="radio" name="slider" id="switch4">
-            <div class="slides">
-                <div class="overflow">
-                    <div class="slider-inner">
-                        <div class="slide"><img  alt="work" src="./images/funny_costumes.jpg">
-                    </div>
-                    <div class="slide"> 
-                        <img  alt="Sea" src="./images/with_mum.jpg">
-                    </div>
-                    <div class="slide">
-                        <img alt="aquapark" src="./images/shooting.jpg">
+            <section class="section-two">
+                <div  class="slider">
+                    <input checked type="radio" name="slider" id="switch1">
+                    <input type="radio" name="slider" id="switch2">
+                    <input type="radio" name="slider" id="switch3">
+                    <input type="radio" name="slider" id="switch4">
+                <div class="slides">
+                    <div class="overflow">
+                        <div class="slider-inner">
+                            <div class="slide"><img  alt="work" src="./images/funny_costumes.jpg">
                         </div>
-                        <div class="slide"><img  alt="run"  src="./images/run.jpg">
+                        <div class="slide"> 
+                            <img  alt="Sea" src="./images/with_mum.jpg">
                         </div>
-                    </div>
+                        <div class="slide">
+                            <img alt="aquapark" src="./images/shooting.jpg">
+                            </div>
+                            <div class="slide"><img  alt="run"  src="./images/run.jpg">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="arrows">
+                    <label class="color_for1" for="switch1"></label>
+                    <label class="color_for2" for="switch2"></label>
+                    <label for="switch3"></label>
+                    <label for="switch4"></label>
+                </div>
+                <div class="dots">
+                    <label for="switch1"></label>
+                    <label for="switch2"></label>
+                    <label for="switch3"></label>
+                    <label for="switch4"></label>
                 </div> 
-            </div>
-            <div class="arrows">
-                <label class="color_for1" for="switch1"></label>
-                <label class="color_for2" for="switch2"></label>
-                <label for="switch3"></label>
-                <label for="switch4"></label>
-            </div>
-            <div class="dots">*/
-                <label for="switch1"></label>
-                <label for="switch2"></label>
-                <label for="switch3"></label>
-                <label for="switch4"></label>
-            </div> 
-            </div>
-        </section>
+                </div>
+            </section>
         <section class="about-dad">
             <div class="div-about">
                 <ul class="ul-section-three">
@@ -107,15 +109,28 @@
                 </ul>
             </div>
         </section>
-        <section class="trips">
+        /* <section class="trips">
 
-        </section>
+        </section>*/
     
     </main>
-    <footer>
-
+    <footer class="footer-last">
+        <div class="footer-div container">
+            <a href="./index.html" class="footer-logo">Fam<span class="footer-second-letter">Koshman</span></a>
+            <p class="p-footer">Зроблено з душею.</p>
+        </div>
     </footer>
-
+    <script>
+        let currentIndex = 1; // Індекс слайду
+        const totalSlides = 4; // Кількість слайдів
+        const switchIds = ['switch1', 'switch2', 'switch3', 'switch4'];
+    
+        setInterval(() => {
+            currentIndex = (currentIndex % totalSlides) + 1; // Змінюємо індекс
+            document.getElementById(switchIds[currentIndex - 1]).checked = true; // Встановлюємо радіо-кнопку
+        }, 3000); // Змінюйте слайди кожні 3 секунди
+    </script>
+    
     
 </body>
 </html>
