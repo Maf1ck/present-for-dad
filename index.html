@@ -42,8 +42,8 @@
     <main>
         <section class="section-one">
             <div class="div-section-one container">
-                <h1 class="title-h">Тату вітаю тебе з Днем народження!</h1>
-                <button type="button" class="title-button">Показати привітання</button>
+                <h1 class="title-h">Тату,вітаю тебе з днем народження!</h1>
+                <button type="button" class="title-button" onclick="window.location.href='#section-words'">Дізнатися нових слів</button>
             </div>
         </section>
             <section class="section-two">
@@ -68,18 +68,18 @@
                         </div>
                     </div> 
                 </div>
-                <div class="arrows">
+               <!--<div class="arrows">
                     <label class="color_for1" for="switch1"></label>
                     <label class="color_for2" for="switch2"></label>
                     <label for="switch3"></label>
-                    <label for="switch4"></label>
+                    <label for="switch4"></label>-->
                 </div>
-                <div class="dots">
+                <!--<div class="dots">
                     <label for="switch1"></label>
                     <label for="switch2"></label>
                     <label for="switch3"></label>
                     <label for="switch4"></label>
-                </div> 
+                </div> -->
                 </div>
             </section>
         <section class="about-dad">
@@ -109,9 +109,14 @@
                 </ul>
             </div>
         </section>
-        /* <section class="trips">
-
-        </section>*/
+        <section class="new-words" id="section-words">
+            <div class="div-section-words">
+                <h2 class="title-section-words">Вчимо мову разом!</h2>
+                <p class="p-section-words">Хочеш дізнатися нових слів?</p>
+                <button class="button-section-words">Тисни!</button>
+                <p class="new-word" id="new-word" style="display: none;">JS</p>
+            </div>
+        </section>
     
     </main>
     <footer class="footer-last">
@@ -121,6 +126,16 @@
         </div>
     </footer>
     <script>
+        const words = [
+            "Ідіть у сраку!",
+            "Напийся з гівна юшки!",
+            "Ми вас відфайдолимо!", 
+            "Заший ротяку по саму сраку!",
+            "Бодай би-м тя мати була радше на кропиву висцяла, ніж мала-м тя нещастя породити! ",
+            "В сраці більше розуму маю, ніж ти в голові",
+            "Не бзди!",
+            "Насрав у торбу та й ся гонорує"
+            ];
         let currentIndex = 1; // Індекс слайду
         const totalSlides = 4; // Кількість слайдів
         const switchIds = ['switch1', 'switch2', 'switch3', 'switch4'];
@@ -129,6 +144,18 @@
             currentIndex = (currentIndex % totalSlides) + 1; // Змінюємо індекс
             document.getElementById(switchIds[currentIndex - 1]).checked = true; // Встановлюємо радіо-кнопку
         }, 3000); // Змінюйте слайди кожні 3 секунди
+
+        // Обробник для кнопки
+    document.querySelector('.button-section-words').addEventListener('click', function() {
+    const newWord = document.getElementById('new-word');
+    
+    // Вибираємо випадкове слово з масиву
+    const randomWord = words[Math.floor(Math.random() * words.length)];
+    
+    // Встановлюємо нове слово і показуємо елемент
+    newWord.textContent = randomWord;
+    newWord.style.display = 'block';
+});
     </script>
     
     

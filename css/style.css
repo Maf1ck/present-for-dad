@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 * {box-sizing: border-box;}
 
 body {
@@ -185,12 +188,14 @@ img{
     --text-color: #F4F4FD;
     --button-bg-color: #4d5ae5;
 }
-.container{
+.container {
+    max-width: 100%;
     width: 1158px;
     padding: 0 15px;
     margin: 0 auto;
 }
 .hero{
+    
     border-bottom: 1px solid #e7e9fc;
     box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
@@ -306,7 +311,7 @@ img{
     padding: 188px 0;
     background-position: center;
     background-repeat: no-repeat;
-    max-width: 1440px;
+    max-width: 100%;
     margin: 0 auto 50px;
     background-size: cover;
 }
@@ -442,6 +447,70 @@ img{
     color: var(--text-color);
     letter-spacing: 0.02em;
 }
+.new-words {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.div-section-words {
+}
+.title-section-words {
+    color: black;
+    font-weight: bolder;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    font-size: 35px;
+    line-height: 1.07;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+.p-section-words {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 20px;
+}
+.button-section-words {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    min-width: 169px;
+    height: 56px;
+    border: none;
+    cursor: pointer;
+    background-color: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    background-color: #5b66db;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button-section-words:hover{
+    cursor: pointer;
+    background-color: #404BBF;
+}
+.button-section-words:focus{
+    cursor: pointer;
+    background-color: #404BBF;
+}
+.new-word {
+    font-size: 28px;
+    color: black;
+    font-weight: bolder;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 25px;
+}
 @media (max-width: 768px) {
     .hero {
       padding: 40px 20px;
@@ -502,12 +571,33 @@ img{
         width: 10px;
         height: 10px;
     }
+    .overflow {
+        height: auto;
+    }
+    .slides .slide img {
+        width: 100%;
+        height: auto;
+    }
+    .ul-header, .ul-adress {
+        gap: 20px;
+    }
+    .header-div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
   
   
   /* Адаптивні стилі для маленьких екранів */
   @media (max-width: 480px) {
+    .title-h {
+        font-size: 1.5em;
+    }
+    .title-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
     .hero {
       padding: 20px 10px;
     }
@@ -556,5 +646,19 @@ img{
     .h2-section-three {
         font-size: 14px;
     }
+    .div-for-text h2 {
+        font-size: 1.2em;
+    }
+    .p-section-three {
+        font-size: 0.9em;
+    }
+    .div-for-text {
+        padding: 10px;
+    }
+    
 }
-  
+
+.dot.active {
+    background-color: #717171;
+}
+
