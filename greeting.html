@@ -85,7 +85,7 @@
             snapshot.forEach(doc => {
                 const data = doc.data();
                 const li = document.createElement("li");
-                li.textContent = `${data.name} написав: ${data.greeting}`;
+                li.textContent = `${data.name} написав(-ла): ${data.greeting}`;
                 greetingsList.appendChild(li);
             });
         }
