@@ -8,9 +8,9 @@ body {
 	margin: 20px;
 }
 .slider { 
-  position: relative;
+    position: relative;
 	text-align: center;
-  top: 10px;
+    top: 10px;
 	max-width: 960px; 
 	margin: 0 auto;
 }
@@ -94,6 +94,7 @@ input[type="radio"]{
 #switch4:checked ~ .slides .slider-inner{
 	margin-left: -300%;
 }
+
 
 .arrows{ 
 	margin: -29% 0 0 0;
@@ -512,6 +513,9 @@ img{
     margin-bottom: 25px;
 }
 @media (max-width: 768px) {
+    .adress-one{
+        visibility: hidden;
+    }
     .hero {
       padding: 40px 20px;
     }
@@ -591,6 +595,9 @@ img{
   
   /* Адаптивні стилі для маленьких екранів */
   @media (max-width: 480px) {
+    .adress-one{
+        visibility: hidden;
+    }
     .title-h {
         font-size: 1.5em;
     }

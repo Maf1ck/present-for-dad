@@ -148,6 +148,7 @@ img{
     color: #404bbf;
 }
 .title{
+    margin-top: 15px;
     color: black;
     font-weight: bolder;
     margin-left: auto;
@@ -159,6 +160,7 @@ img{
     letter-spacing: 0.02em;
 }
 .title-p{
+    margin: 15px auto 15px auto;
     margin-right: auto;
     margin-left: auto;
     text-align: center;
