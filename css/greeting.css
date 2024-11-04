@@ -1,0 +1,245 @@
+h1, h2, h3, h4, h5, h6, p { 
+    margin: 0; 
+} 
+ul { 
+    list-style: none; 
+    padding-left: 0; 
+    margin: 0; 
+}
+
+a {
+    text-decoration: none;
+}
+li {
+    list-style-type: none;
+  }
+body{
+    font-family: 'Roboto', sans-serif;
+    color:  #434455;
+    background-color:#FFFFFF;
+    
+}
+footer{
+    background-color: #2e2f42;
+}
+img{
+    display: block;
+}
+:root {
+    --footer-color:#FFFFFF;
+    --text-color: #F4F4FD;
+    --button-bg-color: #4d5ae5;
+}
+.container {
+    max-width: 100%;
+    width: 1158px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.hero{
+    
+    border-bottom: 1px solid #e7e9fc;
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+}
+.header-div{
+    display: flex;
+    width: 1158px;
+    margin: 0 auto;
+    padding: 0 15px 0 15px;
+    align-items: center;
+}
+.header-nav{
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+.adress-one{
+    font-style: normal;
+}
+.logo-first-letters {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    font-family: "Raleway",sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 117%;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #4d5ae5;
+    margin-right: 76px;
+}
+.logo-first-letters:hover{
+    color: #404bbf;
+}
+.ul-header{
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding-left: 0;
+
+}
+.li-header{
+
+}
+.ul-adress{
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    gap: 40px;
+}
+.second-logo-letters {
+    color: #2e2f42;
+}
+.home-text {
+    margin: 0;
+    padding: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
+
+}
+.home-text:hover{
+    color: #404bbf;
+}
+.home-text:focus{
+    color: #404bbf;
+}
+.home-text.current{
+    position: relative;
+    color: #404bbf;
+
+}
+.home-text.current::after{
+    content: '';
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    background-color: #404BBF;
+}
+
+.adress-start{
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #434455;
+}
+.adress-start:hover{
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #404bbf;
+}
+.adress-start:focus{
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #404bbf;
+}
+.title{
+    color: black;
+    font-weight: bolder;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 496px;
+    font-size: 39px;
+    line-height: 1.07;
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+.title-p{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-size: 18px;
+
+}
+#greetings-list {
+    list-style-type: none; /* Без маркерів */
+    padding: 0;
+    margin: 20px 0;
+    width: 100%;
+}
+
+#greetings-list li {
+    background-color: #e9ecef; /* Світло-сірий фон для кожного привітання */
+    border-radius: 8px; /* Закруглені краї */
+    padding: 15px; /* Відступи всередині */
+    margin-bottom: 10px; /* Відстань між привітаннями */
+    transition: background-color 0.3s; /* Плавна зміна кольору */
+}
+
+#greetings-list li:hover {
+    background-color: #d4d8db; /* Темніший фон при наведенні */
+}
+
+#greetings-list li strong {
+    display: block; /* Ім'я відображається на новому рядку */
+    font-size: 18px; /* Розмір шрифта для імені */
+    color: #333; /* Колір тексту для імені */
+    margin-bottom: 5px; /* Відстань між ім'ям та привітанням */
+}
+
+#greetings-list li p {
+    margin: 0; /* Прибираємо відступи для тексту привітання */
+    color: #555; /* Колір тексту для привітання */
+}
+
+#name-input,
+#greeting-input {
+    margin: 10px 0;
+    padding: 12px;
+    width: calc(48% - 10px); /* Зменшуємо ширину для відступу */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#name-input:focus,
+#greeting-input:focus {
+    border-color: #007bff;
+    outline: none; /* Прибираємо стандартне виділення */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Тінь при фокусі */
+}
+
+#add-greeting-btn {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    min-width: 169px;
+    height: 56px;
+    border: none;
+    cursor: pointer;
+    background-color: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    background-color: #5b66db;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+#add-greeting-btn:hover{
+    cursor: pointer;
+    background-color: #404BBF;
+}
+#add-greeting-btn:focus{
+    cursor: pointer;
+    background-color: #404BBF;
+}

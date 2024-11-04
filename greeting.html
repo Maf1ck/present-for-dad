@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
+    <link rel="stylesheet" href="./css/greeting.css">
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Привітання</title>
+</head>
+<body>
+    <header class="hero">
+        <div class="header-div container">
+            <nav class="header-nav">
+                <a href="./index.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
+                <ul class="ul-header">
+                    <li class="li-header">
+                        <a href="./index.html" class="home-text">Головна</a>
+                    </li>
+                    <li>
+                    <a href="./gallary.html" class="home-text ">Галерея</a>
+                    </li>
+                    <li class="li-header">
+                        <a href="./greeting.html" class="home-text current">Привітання</a>
+                    </li>
+                </ul>
+            </nav>
+            <address class="adress-one">
+                <ul class="ul-adress">
+                    <li>
+                        <a href="kosmanmatvij@gmail.com" class="adress-start">kosmanmatvij@gmail.com</a>
+                    </li>
+                </ul>
+            </address>
+        </div>
+    </header>
+    <main>
+        <section class="main-section">
+            <div class="title-div">
+                <h1 class="title">Привітання від родичів</h1>
+                <p class="title-p">Тут ви можете залишити всі свої побажання.</p>
+            </div>
+                <div>
+                    <input type="text" id="name-input" placeholder="Ваше ім'я" />
+                    <input type="text" id="greeting-input" placeholder="Ваше привітання" />
+                    <button id="add-greeting-btn">Надіслати привітання</button>
+                    <ul id="greetings-list"></ul>
+                </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+        // Функція для оновлення списку привітань
+function updateGreetingsList() {
+    const greetingsList = document.getElementById("greetings-list");
+    greetingsList.innerHTML = ''; // Очищаємо список перед оновленням
+
+    const greetings = JSON.parse(localStorage.getItem('greetings')) || [];
+    greetings.forEach(({ name, message }) => {
+        const li = document.createElement("li");
+        li.textContent = `${name} написав: ${message}`;
+        greetingsList.appendChild(li);
+    });
+}
+
+// Додавання нового привітання
+document.getElementById("add-greeting-btn").addEventListener("click", () => {
+    const nameInput = document.getElementById("name-input");
+    const greetingInput = document.getElementById("greeting-input");
+    const name = nameInput.value.trim();
+    const message = greetingInput.value.trim();
+
+    if (name && message) {
+        const greetings = JSON.parse(localStorage.getItem('greetings')) || [];
+        greetings.push({ name, message });
+        localStorage.setItem('greetings', JSON.stringify(greetings));
+        nameInput.value = ''; // Очищуємо поле ім'я
+        greetingInput.value = ''; // Очищуємо поле привітання
+        updateGreetingsList(); // Оновлюємо список
+    }
+});
+
+// Завантаження привітань при завантаженні сторінки
+window.onload = updateGreetingsList;
+
+    </script>
+</body>
+</html>
