@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
+    <link rel="stylesheet" href="./css/homePage.css">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+    <title>Site for you</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="header-div container">
+            <nav class="header-nav">
+                <a href="./index.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
+                <ul class="ul-header">
+                    <li class="li-header">
+                        <a href="./index.html" class="home-text current">Головна</a>
+                    </li>
+                    <li class="li-header">
+                        <a href="./gallary.html" class="home-text">Яскраві моменти</a>
+                    </li>
+                    <li class="li-header">
+                        <a href="./greeting.html" class="home-text" id="privitannya">Привітання</a>
+                    </li>
+                    <li class="li-header">
+                        <button class="header-btn" type="button" data-mob-open>
+                            <img class="burger" src="./img/buerger_menu.png" alt="">
+                          </button>
+                    </li>
+                   
+                </ul>
+            </nav>
+            <address class="adress-one">
+                <ul class="ul-adress">
+                    <li>
+                        <a href="kosmanmatvij@gmail.com" class="adress-start">kosmanmatvij@gmail.com</a>
+                    </li>
+                </ul>
+            </address>
+        </div>
+    </header>
+    <main>
+        <section class="section-one">
+            <div class="div-section-one container">
+                <h1 class="title-h">Мама,вітаю тебе з днем народження!</h1>
+            </div>
+        </section>
+        <!-- <section class="section-swiper">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img clas="section-one" src="./img/birthday_stay_flowers.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./img/black_sea.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./img/family_photo.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./img/family_photo_2.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./img/piana_visna.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./img/hangout_withDad.jpg" alt="">
+                  </div>
+                  <div class="swiper-slide">Slide 7</div>
+                  <div class="swiper-slide">Slide 8</div>
+                  <div class="swiper-slide">Slide 9</div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+        </section> -->
+
+        <section class="section-about">
+            <div class="div-about">
+                <ul class="ul-section-three">
+                    <li class="li-section-three">
+                        <img src="./img/family_photo.jpg" alt="about" class="img-sectione-three">
+                        <div class="div-for-text">
+                            <h2 class="h2-section-three">Коротко про тебе</h2>
+                            <p class="p-section-three"></p>
+                        </div>
+                    </li>
+                    <li class="li-section-three">
+                        <img src="./img/goverla_with_dad.jpg" alt="" class="img-sectione-three">
+                        <div  class="div-for-text"> 
+                            <h2 class="h2-section-three">Досягнення</h2>
+                            <p class="p-section-three"></p>
+                        </div>
+                    </li>
+                    <li class="li-section-three">
+                        <img src="./img/hangout_withDad.jpg" alt="" class="img-sectione-three">
+                        <div  class="div-for-text">
+                            <h2 class="h2-section-three">Захоплення</h2>
+                            <p class="p-section-three"></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    
+    </main>
+    <footer class="footer-last">
+        <div class="footer-div container">
+            <a href="./index.html" class="footer-logo">Fam<span class="footer-second-letter">Koshman</span></a>
+            <p class="p-footer">Зроблено з душею.</p>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</html>
