@@ -9,8 +9,10 @@ document.getElementById("mySidenav").style.width = "0";
 }
 
 // Імпортуємо Firebase SDK
+// Імпортуємо Firebase SDK
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getFirestore, collection, addDoc, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js';
 
 // Конфігурація Firebase
 const firebaseConfig = {
@@ -25,16 +27,24 @@ const firebaseConfig = {
 // Ініціалізуємо Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 // Функція для додавання події
-async function addEvent(title, date, time, photoURL) {
+async function addEvent(title, date, time, photoFile) {
     try {
+        // Завантаження файлу до Firebase Storage
+        const storageRef = ref(storage, `photos/${photoFile.name}`);
+        const snapshot = await uploadBytes(storageRef, photoFile);
+        const photoURL = await getDownloadURL(snapshot.ref);
+
+        // Додавання події до Firestore
         await addDoc(collection(db, 'important-dates'), {
             title: title,
             date: new Date(date), // Використовуємо Date для timestamp
             time: time,
-            photoURL: photoURL
+            photoURL: photoURL // Збереження URL фото
         });
+
         console.log('Подію успішно додано!');
         displayEvents(); // Оновлюємо список подій після додавання
     } catch (e) {
@@ -57,9 +67,9 @@ async function displayEvents() {
             eventElement.innerHTML = `
                 <div class="event">
                     <h3>${event.title}</h3>
-                    <p>Дата: ${event.date.toDate().toLocaleDateString()}</p>
+                    <p>Дата: ${new Date(event.date.seconds * 1000).toLocaleDateString()}</p>
                     <p>Час: ${event.time}</p>
-                    <img src="${event.photoURL}" alt="Фото події" style="max-width: 200px;">
+                    <img src="${event.photoURL}" alt="Фото події">
                 </div>
             `;
             eventsContainer.appendChild(eventElement);
@@ -70,19 +80,27 @@ async function displayEvents() {
 }
 
 // Додаємо слухач для кнопки "Додати подію"
-document.getElementById('add-event-form').addEventListener('submit', (e) => {
-    e.preventDefault();
+const form = document.getElementById('eventForm');
+if (form) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    const title = document.getElementById('event-title').value;
-    const date = document.getElementById('event-date').value;
-    const time = document.getElementById('event-time').value;
-    const photoURL = document.getElementById('event-photo').value;
+        const title = document.getElementById('title').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const photoFile = document.getElementById('photo').files[0]; // Отримуємо файл
 
-    addEvent(title, date, time, photoURL);
+        if (photoFile) {
+            addEvent(title, date, time, photoFile);
+        } else {
+            console.error('Файл фото не вибрано!');
+        }
 
-    // Очищення форми
-    e.target.reset();
-});
+        e.target.reset();
+    });
+} else {
+    console.error('Форма не знайдена!');
+}
 
 // Викликаємо відображення подій при завантаженні сторінки
 displayEvents();

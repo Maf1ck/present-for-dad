@@ -45,17 +45,16 @@
         </div>
     </header>
     <main>
-        <div class="container">
-            <h1>Яскраві моменти життя</h1>
-            <form id="eventForm">
-                <input type="text" id="title" placeholder="Назва події" required>
-                <input type="date" id="date" required>
-                <input type="time" id="time" required>
-                <input type="file" id="photo" accept="image/*" required>
-                <button type="submit">Додати момент</button>
-            </form>
-            <div class="gallery" id="gallery"></div>
-        </div>
+        <h1>Список подій</h1>
+        <form id="eventForm">
+            <input id="title" type="text" placeholder="Назва події" required>
+            <input id="date" type="date" required>
+            <input id="time" type="time" required>
+            <input id="photo" type="file" accept="image/*" required>
+            <button type="submit">Додати подію</button>
+        </form>
+
+    <div id="events-container"></div>
     </main>
     <footer></footer>
 </body>
