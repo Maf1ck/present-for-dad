@@ -1,5 +1,5 @@
 
-const API_URL = "https://events-server.onrender.com"; // Встав URL твого сервера
+const API_URL = "https://events-server-2vk9.onrender.com"; // Встав URL твого сервера
 // Функція для додавання події
 async function addEvent(title, date, time, photoFile) {
     const formData = new FormData();
