@@ -1,8 +1,0 @@
-[
-    {
-      "origin": ["https://maf1ck.github.io"],
-      "method": ["GET", "POST"],
-      "maxAgeSeconds": 3600
-    }
-  ]
-  
