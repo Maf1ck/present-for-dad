@@ -1,14 +1,3 @@
-const burgerButton = document.querySelector('.header-btn');
-function openNav() {
-    document.getElementById("mySidenav").style.width = "100%";
-}
-
-/* Close/hide the sidenav */
-function closeNav() {
-document.getElementById("mySidenav").style.width = "0";
-}
-
-// Імпортуємо Firebase SDK
 // Імпортуємо Firebase SDK
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
 import { getFirestore, collection, addDoc, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
@@ -24,7 +13,7 @@ const firebaseConfig = {
     appId: "1:265412039201:web:7b38c2c50a6cbf56e98960"
 };
 
-// Ініціалізуємо Firebase
+// Ініціалізація Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
@@ -32,10 +21,21 @@ const storage = getStorage(app);
 // Функція для додавання події
 async function addEvent(title, date, time, photoFile) {
     try {
+        // Перевірка на наявність файлу
+        if (!photoFile) {
+            console.error('Файл фото не вибрано!');
+            return;
+        }
+
         // Завантаження файлу до Firebase Storage
-        const storageRef = ref(storage, `photos/${photoFile.name}`);
+        const storageRef = ref(storage, `photos/${encodeURIComponent(photoFile.name)}`);
+        console.log('Завантаження файлу...', photoFile.name); // Логування для перевірки
+
         const snapshot = await uploadBytes(storageRef, photoFile);
+        console.log('Файл завантажено:', snapshot);
+
         const photoURL = await getDownloadURL(snapshot.ref);
+        console.log('URL фото:', photoURL);
 
         // Додавання події до Firestore
         await addDoc(collection(db, 'important-dates'), {
