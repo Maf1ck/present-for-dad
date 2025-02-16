@@ -19,22 +19,28 @@
     <header class="hero">
         <div class="header-div container">
             <nav class="header-nav">
-                <a href="./index.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
+                <a href="./homePage.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
                 <ul class="ul-header">
                     <li class="li-header">
-                        <a href="./index.html" class="home-text current">Головна</a>
+                        <a href="./homePage.html" class="home-text current">Головна</a>
                     </li>
                     <li class="li-header">
-                        <a href="./gallary.html" class="home-text">Яскраві моменти</a>
+                        <a href="./listPage.html" class="home-text">Яскраві моменти</a>
                     </li>
                     <li class="li-header">
                         <a href="./greeting.html" class="home-text" id="privitannya">Привітання</a>
                     </li>
                     <li class="li-header">
-                        <button class="header-btn" type="button" data-mob-open>
+                        <button class="header-btn" type="button" onclick="openNav()">
                             <img class="burger" src="./img/buerger_menu.png" alt="">
                           </button>
                     </li>
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="./homePage.html">Головна</a>
+                        <a href="./listPage.html" >Яскраві моменти</a>
+                        <a href="./greeting.html">Привітання</a>
+                      </div>
                    
                 </ul>
             </nav>
@@ -53,34 +59,31 @@
                 <h1 class="title-h">Мама,вітаю тебе з днем народження!</h1>
             </div>
         </section>
-        <!-- <section class="section-swiper">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img clas="section-one" src="./img/birthday_stay_flowers.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/black_sea.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/family_photo.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/family_photo_2.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/piana_visna.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./img/hangout_withDad.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">Slide 7</div>
-                  <div class="swiper-slide">Slide 8</div>
-                  <div class="swiper-slide">Slide 9</div>
+        <section class="section-swiper">
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                        <img src="./img/piana_visna.jpg" class="img-swiper" style="width:100% ">
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-        </section> -->
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="./img/happy_mum.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="./img/black_sea.jpg   " style="width:100%">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+
+            </div>
+                <br>
+
+        </section>
 
         <section class="section-about">
             <div class="div-about">
@@ -120,6 +123,41 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
+    const burgerButton = document.querySelector('.header-btn');
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+    }
+
+/* Close/hide the sidenav */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
     var swiper = new Swiper(".mySwiper", {
       navigation: {
         nextEl: ".swiper-button-next",

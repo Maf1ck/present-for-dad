@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
+    <link rel="stylesheet" href="./css/greeting.css">
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Привітання</title>
+</head>
+<body>
+    <header class="hero">
+        <div class="header-div container">
+            <nav class="header-nav">
+                <a href="./homePage.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
+                <ul class="ul-header">
+                    <li class="li-header">
+                        <a href="./homePage.html" class="home-text current">Головна</a>
+                    </li>
+                    <li class="li-header">
+                        <a href="./listPage.html" class="home-text">Яскраві моменти</a>
+                    </li>
+                    <li class="li-header">
+                        <a href="./greeting.html" class="home-text" id="privitannya">Привітання</a>
+                    </li>
+                    <li class="li-header">
+                        <button class="header-btn" type="button" onclick="openNav()">
+                            <img class="burger" src="./img/buerger_menu.png" alt="">
+                          </button>
+                    </li>
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="./homePage.html">Головна</a>
+                        <a href="./listPage.html" >Яскраві моменти</a>
+                        <a href="./greeting.html">Привітання</a>
+                      </div>
+                   
+                </ul>
+            </nav>
+            <address class="adress-one">
+                <ul class="ul-adress">
+                    <li>
+                        <a href="kosmanmatvij@gmail.com" class="adress-start">kosmanmatvij@gmail.com</a>
+                    </li>
+                </ul>
+            </address>
+        </div>
+    </header>
+    <main>
+        <section class="main-section">
+            <div class="title-div">
+                <h1 class="title">Привітання від родичів</h1>
+                <p class="title-p">Тут ви можете залишити всі свої побажання.</p>
+            </div>
+                <div>
+                    <input type="text" id="name-input" placeholder="Ваше ім'я" />
+                    <input type="text" id="greeting-input" placeholder="Ваше привітання" />
+                    <button id="add-greeting-btn">Надіслати привітання</button>
+                    <ul id="greetings-list"></ul>
+                </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="module">
+        const burgerButton = document.querySelector('.header-btn');
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+    }
+
+/* Close/hide the sidenav */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
+        import { getFirestore, collection, addDoc, getDocs, orderBy, query } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+
+        // Ваш веб-додаток Firebase конфігурації
+        const firebaseConfig = {
+            apiKey: "AIzaSyA1gksh4QvoeMIjXJy3Q5W_4_AAiGPuv98",
+            authDomain: "site-famkoshman.firebaseapp.com",
+            projectId: "site-famkoshman",
+            storageBucket: "site-famkoshman.appspot.com",
+            messagingSenderId: "265412039201",
+            appId: "1:265412039201:web:7b38c2c50a6cbf56e98960"
+};
+
+       // Ініціалізація Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Функція для оновлення списку привітань
+        async function updateGreetingsList() {
+            const greetingsList = document.getElementById("greetings-list");
+            greetingsList.innerHTML = '';
+
+            const q = query(collection(db, 'greetings'), orderBy('timestamp', 'desc'));
+            const snapshot = await getDocs(q);
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                const li = document.createElement("li");
+                li.textContent = `${data.name} написав(-ла): ${data.greeting}`;
+                greetingsList.appendChild(li);
+            });
+        }
+
+        // Додавання нового привітання
+        document.getElementById("add-greeting-btn").addEventListener("click", async () => {
+            const nameInput = document.getElementById("name-input");
+            const greetingInput = document.getElementById("greeting-input");
+            const name = nameInput.value.trim();
+            const message = greetingInput.value.trim();
+
+            if (name && message) {
+                await addDoc(collection(db, 'greetings'), {
+                    name: name,
+                    greeting: message,
+                    timestamp: new Date() // Додаємо мітку часу
+                });
+                nameInput.value = '';
+                greetingInput.value = '';
+                updateGreetingsList(); // Оновлюємо список
+            } else {
+                alert('Будь ласка, введіть ім’я та привітання.');
+            }
+        });
+
+        // Завантаження привітань при завантаженні сторінки
+        window.onload = updateGreetingsList;
+    </script>
+</body>
+</html>

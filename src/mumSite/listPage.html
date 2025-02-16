@@ -4,45 +4,60 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/listPage.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Яскраві моменти</title>
 </head>
 <body>
-    <header>
-        <header class="hero">
-            <div class="header-div container">
-                <nav class="header-nav">
-                    <a href="./index.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
-                    <ul class="ul-header">
-                        <li class="li-header">
-                            <a href="./index.html" class="home-text current">Головна</a>
-                        </li>
-                        <li class="li-header">
-                            <a href="./gallary.html" class="home-text">Галерея</a>
-                        </li>
-                        <li class="li-header">
-                            <a href="./greeting.html" class="home-text" id="privitannya">Привітання</a>
-                        </li>
-                    </ul>
-                </nav>
-                <address class="adress-one">
-                    <ul class="ul-adress">
-                        <li>
-                            <a href="kosmanmatvij@gmail.com" class="adress-start">kosmanmatvij@gmail.com</a>
-                        </li>
-                    </ul>
-                </address>
-            </div>
+    <header class="hero">
+        <div class="header-div container">
+            <nav class="header-nav">
+                <a href="./homePage.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
+                <ul class="ul-header">
+                    <li class="li-header">
+                        <a href="./homePage.html" class="home-text ">Головна</a>
+                    </li>
+                    <li class="li-header">
+                        <a href="./listPage.html" class="home-text current">Яскраві моменти</a>
+                    </li>
+                    <li class="li-header">
+                        <a href="./greeting.html" class="home-text" id="privitannya">Привітання</a>
+                    </li>
+                    <li class="li-header">
+                        <button class="header-btn" type="button" onclick="openNav()">
+                            <img class="burger" src="./img/buerger_menu.png" alt="">
+                          </button>
+                    </li>
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="./homePage.html">Головна</a>
+                        <a href="./listPage.html" >Яскраві моменти</a>
+                        <a href="./greeting.html">Привітання</a>
+                    </div>
+                   
+                </ul>
+            </nav>
+            <address class="adress-one">
+                <ul class="ul-adress">
+                    <li>
+                        <a href="kosmanmatvij@gmail.com" class="adress-start">kosmanmatvij@gmail.com</a>
+                    </li>
+                </ul>
+            </address>
+        </div>
     </header>
     <main>
-        <section>
-            <div>
-                <h1>Привіт,тут ти можеш зробити свій персональний розклад</h1>
-                <h3>Введи текст і натисни кнопку 'Додати'</h3>
-            </div>
-
-        </section>
+        <div class="container">
+            <h1>Яскраві моменти життя</h1>
+            <form id="eventForm">
+                <input type="text" id="title" placeholder="Назва події" required>
+                <input type="date" id="date" required>
+                <input type="time" id="time" required>
+                <input type="file" id="photo" accept="image/*" required>
+                <button type="submit">Додати момент</button>
+            </form>
+            <div class="gallery" id="gallery"></div>
+        </div>
     </main>
     <footer></footer>
 </body>
-<script src="./js/listPage.js"></script>
+<script src="./js/listPage.js" type="module"></script>
 </html>
