@@ -1,16 +1,16 @@
-       
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
-        import { getFirestore, collection, addDoc, getDocs, orderBy, query } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
+import { getFirestore, collection, addDoc, getDocs, orderBy, query } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
-        // Ваш веб-додаток Firebase конфігурації
-        const firebaseConfig = {
-            apiKey: "AIzaSyA1gksh4QvoeMIjXJy3Q5W_4_AAiGPuv98",
-            authDomain: "site-famkoshman.firebaseapp.com",
-            projectId: "site-famkoshman",
-            storageBucket: "site-famkoshman.appspot.com",
-            messagingSenderId: "265412039201",
-            appId: "1:265412039201:web:7b38c2c50a6cbf56e98960"
+// Ваш веб-додаток Firebase конфігурації
+const firebaseConfig = {
+    apiKey: "AIzaSyA1gksh4QvoeMIjXJy3Q5W_4_AAiGPuv98",
+    authDomain: "site-famkoshman.firebaseapp.com",
+    projectId: "site-famkoshman",
+    storageBucket: "site-famkoshman.appspot.com",
+    messagingSenderId: "265412039201",
+    appId: "1:265412039201:web:7b38c2c50a6cbf56e98960"
 };
+
 // Ініціалізація Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -48,7 +48,10 @@ eventForm.addEventListener('submit', async (e) => {
 async function loadEvents() {
     eventsContainer.innerHTML = '';
     try {
-        const querySnapshot = await getDocs(eventsCollection);
+        // Створення запиту з сортуванням за датою у порядку спадання
+        const q = query(eventsCollection, orderBy("date", "desc"));
+        const querySnapshot = await getDocs(q);
+
         querySnapshot.forEach((doc) => {
             const event = doc.data();
             const eventElement = document.createElement('div');
