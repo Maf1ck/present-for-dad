@@ -18,20 +18,33 @@
     <header class="hero">
         <div class="header-div container">
             <nav class="header-nav">
-                <a href="./index.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
+                <a href="./homePage.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
                 <ul class="ul-header">
                     <li class="li-header">
-                        <a href="./index.html" class="home-text">Головна</a>
-                    </li>
-                    <li>
-                    <a href="./gallary.html" class="home-text ">Галерея</a>
+                        <a href="../index.html" class="home-text ">Головна</a>
                     </li>
                     <li class="li-header">
-                        <a href="./greeting.html" class="home-text current">Привітання</a>
+                        <a href="./gallary.html" class="home-text ">Галерея</a>
                     </li>
                     <li class="li-header">
-                        <a href="../mumSite/homePage.html" class="home-text" data-changeSite="Mum">Сайт Мами</a>
+                        <a href="./greeting.html" class="home-text" id="privitannya current">Привітання</a>
                     </li>
+                    <li class="li-header">
+                        <a href="../mumSite/homePage.html" class="home-text" id="privitannya">Сайт Мами</a>
+                    </li>
+                    <li class="li-header">
+                        <button class="header-btn" type="button" onclick="openNav()">
+                            <img class="burger" src="../mumSite/img/buerger_menu.png" alt="">
+                          </button>
+                    </li>
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="../index.html">Головна</a>
+                        <a href="./gallary.html" >Галерея</a>
+                        <a href="./greeting.html">Привітання</a>
+                        <a href="../mumSite/homePage.html">Сайт Мами</a>
+                      </div>
+                   
                 </ul>
             </nav>
             <address class="adress-one">
@@ -61,6 +74,9 @@
 
     </footer>
     <script type="module">
+    const burgerButton = document.querySelector('.header-btn');
+    
+       
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
         import { getFirestore, collection, addDoc, getDocs, orderBy, query } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
@@ -116,6 +132,16 @@
 
         // Завантаження привітань при завантаженні сторінки
         window.onload = updateGreetingsList;
+    </script>
+    <script>
+        function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+    }
+
+    /* Close/hide the sidenav */
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
     </script>
 </body>
 </html>

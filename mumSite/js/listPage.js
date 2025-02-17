@@ -1,83 +1,69 @@
+       
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
+        import { getFirestore, collection, addDoc, getDocs, orderBy, query } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
-// const API_URL = "https://events-server-2vk9.onrender.com"; // Встав URL твого сервера
-// // Функція для додавання події
-// async function addEvent(title, date, time, photoFile) {
-//     const formData = new FormData();
-//     formData.append('title', title);
-//     formData.append('date', date);
-//     formData.append('time', time);
-//     formData.append('photo', photoFile);
-
-//     try {
-//         const response = await fetch(`${API_URL}/add-event`, {
-//             method: 'POST',
-//             body: formData,
-//         });
-//         if (!response.ok) throw new Error('Помилка додавання події');
-//         console.log('Подію успішно додано!');
-//         displayEvents(); // Оновлюємо список подій
-//     } catch (e) {
-//         console.error(e.message);
-//     }
-// }
-
-// // Функція для отримання подій
-// async function displayEvents() {
-//     try {
-//         const response = await fetch(`${API_URL}/get-events`);
-//         if (!response.ok) throw new Error('Помилка отримання подій');
-//         const events = await response.json();
-
-//         const eventsContainer = document.getElementById('events-container');
-//         eventsContainer.innerHTML = ''; // Очищаємо контейнер
-
-//         events.forEach(event => {
-//             const eventElement = document.createElement('div');
-//             eventElement.innerHTML = `
-//                 <div class="event">
-//                     <h3>${event.title}</h3>
-//                     <p>Дата: ${new Date(event.date).toLocaleDateString()}</p>
-//                     <p>Час: ${event.time}</p>
-//                     <img src="${event.photoURL}" alt="Фото події">
-//                 </div>
-//             `;
-//             eventsContainer.appendChild(eventElement);
-//         });
-//     } catch (e) {
-//         console.error(e.message);
-//     }
-// }
-
-// // Слухач для форми додавання події
-// const form = document.getElementById('eventForm');
-// if (form) {
-//     form.addEventListener('submit', (e) => {
-//         e.preventDefault();
-//         const title = document.getElementById('title').value;
-//         const date = document.getElementById('date').value;
-//         const time = document.getElementById('time').value;
-//         const photoFile = document.getElementById('photo').files[0];
-
-//         if (photoFile) {
-//             addEvent(title, date, time, photoFile);
-//         } else {
-//             console.error('Файл фото не вибрано!');
-//         }
-
-//         e.target.reset();
-//     });
-// } else {
-//     console.error('Форма не знайдена!');
-// }
-
-// // Викликаємо відображення подій при завантаженні сторінки
-// displayEvents();
-window.onload = updateGreetingsList;
-// Функції навігації (додані в глобальний простір імен)
-window.openNav = function openNav() {
-    document.getElementById("mySidenav").style.width = "100%";
+        // Ваш веб-додаток Firebase конфігурації
+        const firebaseConfig = {
+            apiKey: "AIzaSyA1gksh4QvoeMIjXJy3Q5W_4_AAiGPuv98",
+            authDomain: "site-famkoshman.firebaseapp.com",
+            projectId: "site-famkoshman",
+            storageBucket: "site-famkoshman.appspot.com",
+            messagingSenderId: "265412039201",
+            appId: "1:265412039201:web:7b38c2c50a6cbf56e98960"
 };
+// Ініціалізація Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-window.closeNav = function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-};
+// Робота з Firestore
+const eventForm = document.getElementById('eventForm');
+const eventsContainer = document.getElementById('events-container');
+const eventsCollection = collection(db, "kRKu083dFkttPJKwZEN");
+
+// Відправка даних у Firestore
+eventForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const title = document.getElementById('title').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+
+    try {
+        await addDoc(eventsCollection, {
+            title: title,
+            date: date,
+            time: time
+        });
+
+        // Очищення форми
+        eventForm.reset();
+
+        // Оновлення списку подій
+        loadEvents();
+    } catch (error) {
+        console.error("Помилка при додаванні події: ", error);
+    }
+});
+
+// Завантаження подій із Firestore
+async function loadEvents() {
+    eventsContainer.innerHTML = '';
+    try {
+        const querySnapshot = await getDocs(eventsCollection);
+        querySnapshot.forEach((doc) => {
+            const event = doc.data();
+            const eventElement = document.createElement('div');
+            eventElement.classList.add('event');
+            eventElement.innerHTML = `
+                <h2>${event.title}</h2>
+                <p>${event.date ? `Дата: ${event.date}` : ''}</p>
+                <p>${event.time ? `Час: ${event.time}` : ''}</p>
+            `;
+            eventsContainer.appendChild(eventElement);
+        });
+    } catch (error) {
+        console.error("Помилка при завантаженні подій: ", error);
+    }
+}
+
+// Завантаження подій при завантаженні сторінки
+window.addEventListener('DOMContentLoaded', loadEvents);

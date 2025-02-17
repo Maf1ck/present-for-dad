@@ -409,24 +409,6 @@ img{
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   } 
-
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
-.container {
-    max-width: 600px;
-    margin: 20px auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-h1 {
-    text-align: center;
-}
 form {
     display: flex;
     flex-direction: column;
@@ -439,13 +421,13 @@ input, textarea, button {
     border-radius: 5px;
 }
 button {
-    background-color: #28a745;
+    background-color: #e54dd3;
     color: white;
     border: none;
     cursor: pointer;
 }
 button:hover {
-    background-color: #218838;
+    background-color: #d376c9;
 }
 .gallery {
     margin-top: 20px;
@@ -459,4 +441,11 @@ button:hover {
 .gallery-item img {
     max-width: 100%;
     border-radius: 10px;
+}
+#eventForm{
+    margin: 15px;
+}
+.title{
+    text-align: center;
+    margin: 10px 0;
 }
