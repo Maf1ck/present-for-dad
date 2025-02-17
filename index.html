@@ -3,187 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
-    <link rel="stylesheet" href="./dadSite/css/style.css"> <!-- Інші загальні стилі -->
+    <title>Document</title>
+    <style>
+        .title-button {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    min-width: 169px;
+    height: 56px;
+    border: none;
+    cursor: pointer;
+    background-color: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    background-color: #5b66db;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+}
 
-    <script src="script.js"></script>
-    <title>Site for you</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+.title-button:hover{
+    cursor: pointer;
+    background-color: #404BBF;
+}
+.title-button:focus{
+    cursor: pointer;
+    background-color: #404BBF;
+}
+.title-button2 {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    min-width: 169px;
+    height: 56px;
+    border: none;
+    cursor: pointer;
+    background-color: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    background-color: #e54dd3;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+}
+
+.title-button2:hover{
+    cursor: pointer;
+    background-color: #e47ed8;
+}
+.title-button2:focus{
+    cursor: pointer;
+    background-color: #e47ed8;
+}
+h1{
+    text-align: center;
+}
+a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+    </style>
 </head>
 <body>
-    <header class="hero">
-        <div class="header-div container">
-            <nav class="header-nav">
-                <a href="./homePage.html" class="logo-first-letters">Fam<span class="second-logo-letters">Koshman</span></a>
-                <ul class="ul-header">
-                    <li class="li-header">
-                        <a href="./index.html" class="home-text current">Головна</a>
-                    </li>
-                    <li class="li-header">
-                        <a href="./dadSite/gallary.html" class="home-text">Галерея</a>
-                    </li>
-                    <li class="li-header">
-                        <a href="./dadSite/greeting.html" class="home-text" id="privitannya">Привітання</a>
-                    </li>
-                    <li class="li-header">
-                        <a href="./mumSite/homePage.html" class="home-text" id="privitannya">Сайт Мами</a>
-                    </li>
-                    <li class="li-header">
-                        <button class="header-btn" type="button" onclick="openNav()">
-                            <img class="burger" src="./mumSite/img/buerger_menu.png" alt="">
-                          </button>
-                    </li>
-                    <div id="mySidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="./index.html">Головна</a>
-                        <a href="./dadSite/gallary.html" >Галерея</a>
-                        <a href="./dadSite/greeting.html">Привітання</a>
-                        <a href="./mumSite/homePage.html">Сайт Мами</a>
-                      </div>
-                   
-                </ul>
-            </nav>
-            <address class="adress-one">
-                <ul class="ul-adress">
-                    <li>
-                        <a href="kosmanmatvij@gmail.com" class="adress-start">kosmanmatvij@gmail.com</a>
-                    </li>
-                </ul>
-            </address>
-        </div>
-    </header>
     <main>
-        <section class="section-one">
-            <div class="div-section-one container">
-                <h1 class="title-h">Тату,вітаю тебе з днем народження!</h1>
-                <button type="button" class="title-button" onclick="window.location.href='#section-words'">Дізнатися нових слів</button>
+        <section>
+            <h1>Обери сайт, який хочеш відвідати</h1>
+            <div>
+                <button class="title-button"><a class="" href="./dadSite/index.html">Сайт Тата</a></button>
+                <button class="title-button2"><a href="./mumSite/index.html">Сайт Мами</a></button>
             </div>
         </section>
-            <section class="section-two">
-                <div  class="slider">
-                    <input checked type="radio" name="slider" id="switch1">
-                    <input type="radio" name="slider" id="switch2">
-                    <input type="radio" name="slider" id="switch3">
-                    <input type="radio" name="slider" id="switch4">
-                <div class="slides">
-                    <div class="overflow">
-                        <div class="slider-inner">
-                            <div class="slide">
-                                <img  alt="work" src="./dadSite/images/funny_costumes.jpg">
-                            </div>
-                            <div class="slide"> 
-                                <img  alt="Sea" src="./dadSite/images/with_mum.jpg">
-                            </div>
-                            <div class="slide">
-                                <img alt="aquapark" src="./dadSite/images/shooting.jpg">
-                            </div>
-                            <div class="slide">
-                                <img  alt="run"  src="./dadSite/images/smoking.jpg">
-                            </div>
-                    </div> 
-                </div>
-               <!--<div class="arrows">
-                    <label class="color_for1" for="switch1"></label>
-                    <label class="color_for2" for="switch2"></label>
-                    <label for="switch3"></label>
-                    <label for="switch4"></label>-->
-                </div>
-                <!--<div class="dots">
-                    <label for="switch1"></label>
-                    <label for="switch2"></label>
-                    <label for="switch3"></label>
-                    <label for="switch4"></label>
-                </div> -->
-                </div>
-            </section>
-        <section class="about-dad">
-            <div class="div-about">
-                <ul class="ul-section-three">
-                    <li class="li-section-three">
-                        <img src="./dadSite/images/about_you.jpg" alt="about" class="img-sectione-three">
-                        <div class="div-for-text">
-                            <h2 class="h2-section-three">Коротко про тебе</h2>
-                            <p class="p-section-three">Ти найкращий батько e світі. Коли я прокидаюся,то це розумію. Твої досягнення в спорті,в житті,в роботі - це щось неймовірне. Ти для мене є прикладом і натхненням.</p>
-                        </div>
-                    </li>
-                    <li class="li-section-three">
-                        <img src="./dadSite/images/odessa-sectione-three.jpg" alt="" class="img-sectione-three">
-                        <div  class="div-for-text"> 
-                            <h2 class="h2-section-three">Досягнення</h2>
-                            <p class="p-section-three">Твої досягнення не показати одним зображенням. Ти маєш неймовірну сім'ю,яка тебе надихає і пітримує, квартиру в найліпшого забудовника в Одесі, дім, який ти побудував своїми золотими руками,і ти маєш багато планів на майбутнє,які неодмінно здійсняться.</p>
-                        </div>
-                    </li>
-                    <li class="li-section-three">
-                        <img src="./dadSite/images/running-sectione-three.jpg" alt="" class="img-sectione-three">
-                        <div  class="div-for-text">
-                            <h2 class="h2-section-three">Захоплення</h2>
-                            <p class="p-section-three">Захоплення є неодмінною частиною твого життя, вони є твоїм заспокійловим. Я знаю: ти полюбляєш їздити на рибалку, стріляти з пневматичного пістолета, займатися спортом, і як же без твого улюбленого сала).</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class="new-words" id="section-words">
-            <div class="div-section-words">
-                <h2 class="title-section-words">Вчимо мову разом!</h2>
-                <p class="p-section-words">Хочеш дізнатися нових слів?</p>
-                <button class="button-section-words">Тисни!</button>
-                <p class="new-word" id="new-word" style="display: none;">JS</p>
-            </div>
-        </section>
-    
     </main>
-    <footer class="footer-last">
-        <div class="footer-div container">
-            <a href="./index.html" class="footer-logo">Fam<span class="footer-second-letter">Koshman</span></a>
-            <p class="p-footer">Зроблено з душею.</p>
-        </div>
-    </footer>
-    <script>
-        const burgerButton = document.querySelector('.header-btn');
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "100%";
-    }
-
-/* Close/hide the sidenav */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-        const words = [
-            "Ідіть у сраку!",
-            "Напийся з гівна юшки!",
-            "Ми вас відфайдолимо!", 
-            "Заший ротяку по саму сраку!",
-            "Бодай би-м тя мати була радше на кропиву висцяла, ніж мала-м тя нещастя породити! ",
-            "В сраці більше розуму маю, ніж ти в голові",
-            "Не бзди!",
-            "Насрав у торбу та й ся гонорує"
-            ];
-        let currentIndex = 1; // Індекс слайду
-        const totalSlides = 7; // Кількість слайдів
-        const switchIds = ['switch1', 'switch2', 'switch3', 'switch4'];
-    
-        setInterval(() => {
-            currentIndex = (currentIndex % totalSlides) + 1; // Змінюємо індекс
-            document.getElementById(switchIds[currentIndex - 1]).checked = true; // Встановлюємо радіо-кнопку
-        }, 3000); // Змінюйте слайди кожні 3 секунди
-
-        // Обробник для кнопки
-    document.querySelector('.button-section-words').addEventListener('click', function() {
-    const newWord = document.getElementById('new-word');
-    
-    // Вибираємо випадкове слово з масиву
-    const randomWord = words[Math.floor(Math.random() * words.length)];
-    
-    // Встановлюємо нове слово і показуємо елемент
-    newWord.textContent = randomWord;
-    newWord.style.display = 'block';
-});
-    </script>
-    
-    
 </body>
 </html>
